@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta mame="viewport" content= "width=device-width, initial-scale=1.0">
+    <title>Formular zadanie</title>
+    <link rel="stylesheet" href="formular_zadanie.css">
+    <script src="formular_zadanie.js" defer></script>
+</head>
+
+<body>
+<main>
+    <form id="formular">
+        <label for="meno">Meno a priezvisko:</label>
+        <input type="text" id="menoin" name="meno" class="obdlznik">
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="emailin" class="obdlznik">
+        <label for="tel_cis">Telefonné číslo:</label>
+        <input type="tel" name="tel_cis" id="tel_cisin" class="obdlznik">
+        <label for="narodenie">Dátum narodenia:</label>
+        <input type="date" name="narodenie" id="narodeniein" class="obdlznik">
+        <label for="kurz">Kurz:</label>
+        <select name="kurz" id="kurzin" class="obdlznik">
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="javascript">JavaScript</option>
+        </select>
+        <label><input type="radio" name="uroven" id="urovenin" value="beginner">Beginner</label>
+        <label><input type="radio" name="uroven" id="urovenin" value="intermediate">Intermediate</label>
+        <label><input type="radio" name="uroven" id="urovenin" value="advanced">Advanced</label>
+
+        <label for="poznamka">Poznamka</label>
+        <textarea name="poznamka" id="poznamkain" rows="4" cols="50" class="obdlznik"></textarea>
+        <label for="suhlas">Súhlasím s podmienkami</label>
+        <input type="checkbox" name="suhlas" id="suhlasin">
+        <input type="submit" >
+    </form>
+    <div class="nahlad">
+        <p>Meno a priezvisko:</p>
+        <p id="menoo"></p>
+        <p>Email:</p>
+        <p id="emailo"></p>
+        <p>Kurz:</p>
+        <p id="kurzo"></p>
+        <p>Úroveň:</p>
+        <p id="uroveno"></p>
+        <p>Poznámka:</p>
+        <p id="poznamkao"></p>
+    </div>
+</main>
+</body>
+
+</html>
