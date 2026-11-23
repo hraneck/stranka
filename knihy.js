@@ -94,7 +94,11 @@ nacitajKnihy();*/
 
 
 function nacitajKnihy(){
-    fetch("/api/knihy")
+    const hladat = document.getElementById("hladatInput").value;
+    const zoradit = document.getElementById("zoraditSelect").value;
+    const smer = document.getElementById("smerSelect").value;
+    const params = new URLSearchParams({ hladat, zoradit, smer });
+    fetch(`/api/knihy?${params}`)
     .then(response => response.json())
     .then(knihy => {
         const zoznam = document.getElementById("zoznam");
@@ -188,5 +192,15 @@ formular.addEventListener("submit", event => {
         nacitajKnihy();
     });
 });
+document.getElementById ("hladatInput").addEventListener ("input",nacitajKnihy);
+document.getElementById ("zoraditSelect").addEventListener ("change",nacitajKnihy);
+document.getElementById ("smerSelect").addEventListener ("change",nacitajKnihy);
+document.getElementById ("resetFilterBtn").addEventListener ("click", () => {
+    document.getElementById ("hladatInput").value = "";
+    document.getElementById ("zoraditSelect").value = "id";
+    document.getElementById ("smerSelect").value = "ASC";
+    nacitajKnihy();
+});
+
 
 nacitajKnihy();
