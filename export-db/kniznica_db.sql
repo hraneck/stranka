@@ -1,6 +1,6 @@
 -- MariaDB dump 10.19  Distrib 10.4.32-MariaDB, for Win64 (AMD64)
 --
--- Host: localhost    Database: kniznica_db
+-- Host: 127.0.0.1    Database: kniznica_db
 -- ------------------------------------------------------
 -- Server version	10.4.32-MariaDB
 
@@ -51,6 +51,34 @@ INSERT INTO `knihy` VALUES (11,'Jánošík','Janko Kral',1890,15.00),(12,'Antifo
 UNLOCK TABLES;
 
 --
+-- Table structure for table `pouzivatelia`
+--
+
+DROP TABLE IF EXISTS `pouzivatelia`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pouzivatelia` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `meno` varchar(100) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `heslo_hash` varchar(255) NOT NULL,
+  `vytvoreny` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pouzivatelia`
+--
+
+LOCK TABLES `pouzivatelia` WRITE;
+/*!40000 ALTER TABLE `pouzivatelia` DISABLE KEYS */;
+INSERT INTO `pouzivatelia` VALUES (1,'hraneck','hrk@gmail.com','$2b$10$Qukx9h5.EFPW4qdYGTJke.LV/m8soSpdHNH1EhcnlInix6VcSpCxu','2026-11-23 10:02:40'),(2,'drew taylor','taylor@gmail.com','$2b$10$UfhjKqAMZJgMMjDj0yNAUe/5nv0z.DqPoy1LOJ7PjGBQNiOjSrzRi','2026-11-23 10:11:37');
+/*!40000 ALTER TABLE `pouzivatelia` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Dumping events for database 'kniznica_db'
 --
 
@@ -67,4 +95,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-11-16 15:59:37
+-- Dump completed on 2026-11-23 13:27:43
